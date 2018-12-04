@@ -7,45 +7,59 @@ int main()
 	int sudoku[9][9] = { };
 	string eingabe[11] = { };
 	int m = 0, z = 0;
-	char c = 0;
 
 	for (int i = 0; i < 11; i++)
 	{
-
 		if (i == 0)
 			cout << "Bitte geben Sie das Sudoku ein:" << endl;
 
 		getline(cin, eingabe[i]);
-
 		m = 0;
 
+		/*cout << eingabe[i] << endl;*/
+	
 		for (int k = 0; k < eingabe[i].size(); k++)
 		{
-			c = eingabe[i].at(k);
+		
 
-			if ((c >= '1') && (c <= '9'))
+			if ((eingabe[i].at(k) >= '1') && (eingabe[i].at(k) <= '9'))
 			{
-
-				sudoku[i][m] = (eingabe[i].at(k) - '0');
+				sudoku[z][m] = (eingabe[i].at(k) - int('0'));
 				m++;
 			}
 
 		}
-
+		
+		if (eingabe[i][0] == '.')
+		{
+			z++;
+		}
 	}
+
+	cout << endl;
 
 	for (int y = 0; y <= 8; y++)
 	{
-	
+		if (y == 3)
+		{
+			cout << "=======//======//======" << endl;
+		}
+		if (y == 6)
+		{
+			cout << "=======//======//======" << endl;
+		}
+
 		for (int x = 0; x <= 8; x++)
 		{
-			if(x == 0)
+			if (x == 0)
 			{
 				cout << ";";
 			}
 
 			cout << sudoku[y][x];
-			cout << ";";
+
+			if(x >= 0 && x <= 7)
+				cout << ";";
 			if (x == 2)
 				cout << "//";
 			if (x == 5)
@@ -53,32 +67,26 @@ int main()
 			if (x == 8)
 				cout << endl;
 		}
-
-
 	}
 
-
-
-	/*cout << sudoku[2][2] << endl;*/
-	
 	system("PAUSE");
 	return 0;
 }
 
 
-//Testläufe: (Benutzereingaben diesmal nicht unterstrichen, da sonst zu unübersichtlich)
+//Testlï¿½ufe: (Benutzereingaben diesmal nicht unterstrichen, da sonst zu unï¿½bersichtlich)
 //	       Bitte geben Sie das Sudoku ein :
-//		   .5.1.4. | .8.6.9. | .7.2.3
-//		   .8.7.2. | .3.4.5. | .6.1.9
-//		   .9.6.3. | .2.1.7. | .5.4.8
-//		   ------- | ------- | -------
-//		   .6.2.8. | .1.3.4. | .9.5.7
-//		   .1.9.7. | .6.5.2. | .8.3.4
-//		   .4.3.5. | .7.9.8. | .1.6.2
-//		   ------- | ------- | -------
-//		   .2.4.6. | .9.7.1. | .3.8.5
-//		   .7.5.1. | .4.8.3. | .2.9.6
-//		   .3.8.9. | .5.2.6. | .4.7.1
+		   /*.5.1.4. | .8.6.9. | .7.2.3
+		   .8.7.2. | .3.4.5. | .6.1.9
+		   .9.6.3. | .2.1.7. | .5.4.8
+		   ------- | ------- | -------
+		   .6.2.8. | .1.3.4. | .9.5.7
+		   .1.9.7. | .6.5.2. | .8.3.4
+		   .4.3.5. | .7.9.8. | .1.6.2
+		   ------- | ------- | -------
+		   .2.4.6. | .9.7.1. | .3.8.5
+		   .7.5.1. | .4.8.3. | .2.9.6
+		   .3.8.9. | .5.2.6. | .4.7.1*/
 //		   Das Sudoku lautet :
 //		   ;5;1;4;//;8;6;9;//;7;2;3
 //		   ;8;7;2;//;3;4;5;//;6;1;9
@@ -91,7 +99,7 @@ int main()
 //		   ;2;4;6;//;9;7;1;//;3;8;5
 //		   ;7;5;1;//;4;8;3;//;2;9;6
 //		   ;3;8;9;//;5;2;6;//;4;7;1
-//		   Drücken Sie eine beliebige Taste . . .
+//		   Drï¿½cken Sie eine beliebige Taste . . .
 //
 //		   Bitte geben Sie das Sudoku ein :
 //		   .9.4.6. | .3.1.8. | .2.7.5
@@ -118,4 +126,4 @@ int main()
 //		   ;3;6;8;//;5;9;2;//;4;1;7
 //		   ;4;5;1;//;6;8;7;//;3;2;9
 //		   ;7;9;2;//;4;3;1;//;5;8;6
-//		   Drücken Sie eine beliebige Taste . . .
+//		   Drï¿½cken Sie eine beliebige Taste . . .
